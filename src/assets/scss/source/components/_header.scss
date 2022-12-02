@@ -1,0 +1,129 @@
+header {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 10px;
+	z-index: 1000;
+
+	@media only screen and (max-width:767px){
+		position: fixed;
+		top: 0;
+	}
+
+	.nav-bar {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		max-width: 1280px;
+		height:80px;
+		margin:0 auto;
+		background: linear-gradient(90.03deg, rgba(69, 28, 6, 0.75) 54.71%, rgba(255, 207, 181, 0) 100%);
+		border-radius: 25px;
+		padding:0px 30px;
+
+		@media only screen and (max-width:767px){
+			border-radius: 0;
+			padding: 0 24px;
+		}
+
+		.hamburger {
+			display: none;
+			cursor: pointer;
+
+			.bar {
+				display: block;
+				width: 25px;
+				height: 3px;
+				margin: 5px auto;
+				transition: all 0.3s ease-in-out;
+				background-color: $white;
+			}
+		}
+
+		.nav {
+
+			li {
+				display: inline-block;
+
+				a {
+					display: block;
+					color: $white;
+					font-size: 24px;
+					text-decoration: none;
+					padding: 10px 36px;
+
+					&:hover {
+						color: $secondary-brown;
+					}
+				}
+			}
+		}
+
+		@media only screen and (max-width: 992px) {
+			.hamburger {
+				display: block;
+
+				&.active {
+					.bar {
+						background-color: $secondary-brown;
+					}
+					.bar:nth-child(2){
+						opacity: 0;
+					}
+					.bar:nth-child(1){
+						transform: translateY(8px) rotate(45deg);
+					}
+					.bar:nth-child(3){
+						transform: translateY(-8px) rotate(-45deg);
+					}
+				}
+			}
+
+			.nav {
+				position: fixed;
+				left: -100%;
+				top: 89px;
+				bottom: 0;
+				gap: 0;
+				flex-direction: column;
+				background: $primary-brown;
+				width: 100%;
+				text-align: center;
+				transition: 0.3s;
+
+
+				.list-item {
+					margin: 20px auto;
+				}
+				
+				&.active {
+					left: 0;
+									
+				li {
+					display: block;
+				}
+				}
+			}
+		}
+
+
+	}
+
+	&.sticky-header {
+		position: fixed;
+		top: 0;
+		right: 0;
+		left: 0;
+		background: linear-gradient(90.03deg, rgba(69, 28, 6, 0.75) 54.71%, rgba(255, 207, 181, 0) 100%);
+
+		@media only screen and (max-width:767px){
+			padding: 0 24px;
+		}
+
+		.nav-bar {
+			background: none;
+			padding: 0;
+		}
+	}
+}
